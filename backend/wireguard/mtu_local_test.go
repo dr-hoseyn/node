@@ -84,9 +84,10 @@ func TestLocalMTULive(t *testing.T) {
 		t.Fatal(err)
 	}
 	check(m.defaultMTU)
+	defaultMTU := m.defaultMTU
 	if err = m.initializeWithPeers(key, 0, nil, nil, nil); err != nil {
 		t.Fatal(err)
 	}
-	check(m.defaultMTU)
-	t.Logf("verified create, update, invalid value, reset and default (MTU=%d)", m.defaultMTU)
+	check(defaultMTU)
+	t.Logf("verified create, update, invalid value, reset and default (MTU=%d)", defaultMTU)
 }
